@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue"
+import ProductCard from "./components/ProductCard.vue"
 
 interface Product {
   id: number
@@ -24,21 +25,13 @@ onMounted(async () => {
     </h1>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <div
+      <ProductCard
         v-for="product in products"
         :key="product.id"
-        class="bg-white p-4 rounded-xl shadow"
-      >
-        <img :src="product.thumbnail" class="w-full h-40 object-cover rounded" />
-
-        <h2 class="mt-2 font-semibold">
-          {{ product.title }}
-        </h2>
-
-        <p class="text-blue-600 font-bold">
-          ${{ product.price }}
-        </p>
-      </div>
+        :title="product.title"
+        :price="product.price"
+        :thumbnail="product.thumbnail"
+      />
     </div>
   </main>
 </template>
