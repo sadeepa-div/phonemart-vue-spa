@@ -4,11 +4,19 @@ defineProps<{
   price: number
   thumbnail: string
 }>()
+
+const emit = defineEmits(["select"])
 </script>
 
 <template>
-  <div class="bg-white p-4 rounded-xl shadow">
-    <img :src="thumbnail" class="w-full h-40 object-cover rounded" />
+  <div
+    class="bg-white p-4 rounded-xl shadow cursor-pointer"
+    @click="emit('select')"
+  >
+    <img
+      :src="thumbnail"
+      class="w-full h-40 object-cover rounded"
+    />
 
     <h2 class="mt-2 font-semibold">
       {{ title }}
