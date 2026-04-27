@@ -7,6 +7,8 @@ interface Product {
   title: string
   price: number
   thumbnail: string
+  description: string
+  brand: string
 }
 
 
@@ -75,6 +77,18 @@ onMounted(async () => {
         <p class="mt-2 text-blue-600 font-bold">
           ${{ selectedProduct.price }}
         </p>
+        <p class="mt-2 text-blue-600 font-bold">
+  ${{ selectedProduct.price }}
+</p>
+
+<!-- 🔥 ADD THESE 2 LINES RIGHT HERE -->
+<p class="mt-2 text-gray-600">
+  {{ selectedProduct.description }}
+</p>
+
+<p class="mt-2 text-sm text-gray-500">
+  Brand: {{ selectedProduct.brand }}
+</p>
 
         <button
           @click="selectedProduct = null"
